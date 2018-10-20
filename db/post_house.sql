@@ -1,3 +1,3 @@
 INSERT INTO houses
-(name,address,city,state, zipcode)
-VALUES ($1,$2,$3,$4,$5);
+(name,address,city,state,zipcode,imgurl,mortgage,rent)
+VALUES ($1,$2,$3,$4,$5,$6,$7,$8);

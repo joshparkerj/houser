@@ -20,7 +20,10 @@ module.exports = {
       req.body.address,
       req.body.city,
       req.body.state,
-      req.body.zipcode
+      req.body.zipcode,
+      req.body.imgurl,
+      req.body.mortgage,
+      req.body.rent
     ])
       .then(r => {
         res.status(200).send();

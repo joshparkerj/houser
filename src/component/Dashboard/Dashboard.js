@@ -18,7 +18,7 @@ export default class Dashboard extends Component{
   }
 
   handleClick = () => {
-    this.props.history.push('/wizard');
+    this.props.history.push('/wizard/step-one');
   }
 
   getHouses = () => {
@@ -52,9 +52,13 @@ export default class Dashboard extends Component{
   render() {
     return (
       <div className="dashboard">
-        <button onClick={this.handleClick}>
-          Add New Property
-        </button>
+        <div className="dashboard-heading">
+          <h1>Dashboard</h1>
+          <button onClick={this.handleClick}>
+            Add New Property
+          </button>
+        </div>
+        <h2>Home Listings</h2>
         {this.state.houses.map(this.houseMapper)}
       </div>
     )

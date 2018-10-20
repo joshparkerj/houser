@@ -1,4 +1,22 @@
-div {
-  margin: 20px;
-  padding: 20px;
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 6px;
+  background-color: #8AEA92;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.App {
+  background-color: #AFD4C0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+}
+
+.dashboard,.wizard {
+  background-color: #E5F4EC;
+  width: 55vw;
+  margin: auto;
 }

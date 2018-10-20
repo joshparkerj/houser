@@ -1,3 +1,11 @@
 .header {
-  background-color: chartreuse;
+  margin: 0px;
+  padding: 30px;
+  padding-left: 260px;
+  background-color: #519872;
+  color: white;
+}
+
+.page-title {
+  margin-left: 100px;
 }

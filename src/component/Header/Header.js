@@ -1,13 +1,12 @@
 import React from 'react';
 import './Header.css';
+import logo from '../../assets/houser_logo.png';
 
 export default function Header(props){
   return (
     <div className="header">
-      header
-      <p>
-        supposedly this is the actual header component idk
-      </p>
+      <img src={logo} alt="houser" />
+      <h1 className="page-title">Houser</h1>
     </div>
   )
 }

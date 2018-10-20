@@ -1,72 +1,36 @@
 import React, {Component} from 'react';
 import './Wizard.css';
-import axios from 'axios';
-const api_address = "http://localhost:8080"
+import {Route} from 'react-router-dom';
+import StepOne from './step-one';
+import StepTwo from './step-two';
+import StepThree from './step-three';
+import {connect} from 'react-redux';
+import { ABcancel } from '../../ducks/reducer';
 
-
-export default class Wizard extends Component{
-
-  constructor(){
-    super();
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipcode: ''
-    }
-  }
+class Wizard extends Component{
 
   handleCancel = () => {
+    this.props.ABcancel();
     this.props.history.push('/');
-  }
-
-  handleChange = e => {
-    this.setState({[e.target.name]: e.target.value});
-  }
-
-  postHouse = () => {
-    axios.post(`${api_address}/house`, {
-      name: this.state.name,
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      zipcode: this.state.zipcode
-    })
-      .then(res => {
-        this.props.history.push('/');
-      })
-      .catch(err => {
-        console.error(err);
-      })
   }
 
   render() {
     return (
       <div className="wizard">
-        <h3>WIZARD</h3>
-        <label>name</label>
-        <input name="name" onChange={this.handleChange} />
-        <br />
-        <label>address</label>
-        <input name="address" onChange={this.handleChange} />
-        <br />
-        <label>city</label>
-        <input name="city" onChange={this.handleChange} />
-        <br />
-        <label>state</label>
-        <input name="state" onChange={this.handleChange} />
-        <br />
-        <label>zipcode</label>
-        <input name="zipcode" onChange={this.handleChange} />
-        <br />
-        <button onClick={this.handleCancel}>
+        <h3>Add New Listing</h3>
+        <button className="cancel-button" onClick={this.handleCancel}>
           Cancel
         </button>
-        <button onClick={this.postHouse}>
-          Complete
-        </button>
+        <Route path='/wizard/step-one' component={StepOne} />
+        <Route path='/wizard/step-two' component={StepTwo} />
+        <Route path='/wizard/step-three' component={StepThree} />
       </div>
     )
   }
 }
+
+const mapDispatchToProps = {
+  ABcancel
+}
+
+export default connect(null, mapDispatchToProps)(Wizard);

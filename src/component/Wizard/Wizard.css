@@ -1,10 +1,38 @@
-label {
+h3 {
   display: inline-block;
-  width: 90px;
-  margin-bottom: 10px;
 }
 
-.wizard {
-  background-color: rosybrown;
-  border-radius: 8px;
+.address-field {
+  width: 80%;
+}
+
+.cancel-button {
+  background-color: #FEC2C2;
+}
+
+.nav-btn {
+  background-color: #3B5249;
+  border: 1px solid gray;
+  border-radius: 0px;
+  box-shadow: 1px 1px 0px #222222;
+  color: white;
+}
+
+.lower-btns {
+  display: flex;
+  align-content: space-between;
+}
+
+.step-one,.step-two,.step-three {
+  margin-left: 200px;
+}
+
+.step-one div {
+  display: inline-block;
+  margin: 20px;
+  margin-left: 0px;
+}
+
+.step-three input {
+  width: 80%;
 }
