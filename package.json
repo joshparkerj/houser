@@ -5,24 +5,55 @@
   "main": "server/index.js",
   "proxy": "http://localhost:8080",
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@testing-library/jest-dom": "^5.16.3",
     "axios": "^0.26.1",
+    "bfj": "^7.0.2",
     "body-parser": "^1.20.0",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "chalk": "^5.0.1",
     "cors": "^2.8.5",
+    "css-loader": "^6.7.1",
     "dotenv": "^16.0.0",
+    "dotenv-expand": "^8.0.3",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-flowtype": "^8.0.3",
     "express": "^4.17.3",
+    "fs-extra": "^10.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "^27.5.1",
+    "jest-pnp-resolver": "^1.2.2",
+    "jest-resolve": "^27.5.1",
     "massive": "^6.10.2",
+    "mini-css-extract-plugin": "^2.6.0",
+    "pnp-webpack-plugin": "^1.7.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.4.3",
+    "postcss-safe-parser": "^6.0.0",
+    "prop-types": "^15.8.1",
     "react": "^18.0.0",
-    "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5",
-    "redux": "^4.0.1"
+    "react-app-polyfill": "^3.0.0",
+    "react-dev-utils": "^12.0.0",
+    "react-dom": "^18.0.0",
+    "react-redux": "^7.2.8",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.1.2",
+    "resolve": "^1.22.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.71.0",
+    "webpack-dev-server": "^4.7.4",
+    "webpack-manifest-plugin": "^5.0.0",
+    "workbox-webpack-plugin": "^6.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "webpack",
+    "test": "jest",
+    "lint": "npx eslint \"./src/**/*.js\" \"./src/**/*.jsx\" \"./server/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +63,54 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.0.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "file-loader": "^6.2.0",
+    "swc-loader": "^0.1.15",
+    "webpack-cli": "^4.9.2"
+  }
 }

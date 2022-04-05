@@ -1,19 +1,18 @@
 module.exports = {
-  getHealth: (req,res,next) => {
+  getHealth: (_, res) => {
     res.send('ok');
   },
-  getHouses: (req,res,next) => {
+  getHouses: (req, res) => {
     const db = req.app.get('db');
     db.get_houses()
-      .then(r => {
+      .then((r) => {
         res.status(200).send(r);
       })
-      .catch(err => {
+      .catch(() => {
         res.status(500).send('get houses failed');
-        console.log(err);
-      })
+      });
   },
-  postHouse: (req,res,next) => {
+  postHouse: (req, res) => {
     const db = req.app.get('db');
     db.post_house([
       req.body.name,
@@ -23,25 +22,23 @@ module.exports = {
       req.body.zipcode,
       req.body.imgurl,
       req.body.mortgage,
-      req.body.rent
+      req.body.rent,
     ])
-      .then(r => {
+      .then(() => {
         res.status(200).send();
       })
-      .catch(err => {
+      .catch(() => {
         res.status(500).send('post house failed');
-        console.error(err);
-      })
+      });
   },
-  deleteHouse: (req,res,next) => {
+  deleteHouse: (req, res) => {
     const db = req.app.get('db');
     db.delete_house([req.params.id])
-      .then(r => {
+      .then(() => {
         res.status(200).send();
       })
-      .catch(err => {
+      .catch(() => {
         res.status(500).send('delete house failed');
-        console.error(err);
-      })
-  }
-}
+      });
+  },
+};
