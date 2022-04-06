@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/joshparkerj/houser/actions/workflows/node.js.yml/badge.svg)](https://github.com/joshparkerj/houser/actions/workflows/node.js.yml)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
